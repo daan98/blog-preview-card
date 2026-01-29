@@ -15,19 +15,22 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body class="bg-[#f4d04e] min-h-screen flex">
+<body class="bg-[#f4d04e] min-h-screen flex font-figtree-medium">
 
-  <main class="flex justify-center items-center flex-col m-auto lg:w-3/5 w-11/12">
-    <div id="prev-card-container" class="bg-white rounded-[10px] border-[2px_solid_#000] p-8 shadow-[5px_5px_#000]/100">
-      <div id="prev-card-text" class="flex flex-col gap-2.5">
-        <img src="assets/images/illustration-article.svg" alt="Article_Illustration" class="rounded-[10px] w-full">
-        <p class="bg-[#f4d04e] font-bold w-fit p-[5px_10px] rounded">Learning</p>
+  <main class="flex justify-center items-center flex-col m-auto lg:w-3/5 w-11/12 py-5">
+    <div id="prev-card-container" class="bg-white rounded-[10px] border border-solid border-black p-6 shadow-[5px_5px_#000]/100">
+      <img src="assets/images/illustration-article.svg" alt="Article_Illustration" class="rounded-[10px] w-full">
+      <div id="prev-card-info" class="flex flex-col gap-2.5 pt-6">
+        <div id="card-header" class="flex flex-col gap-2.5">
+          <a href="#" class="bg-[#f4d04e] font-bold w-fit p-[5px_10px] rounded">Learning</a>
+          <p class="text-xs">Published 21 Dec 2023</p>
+        </div>
 
-        <p>Published 21 Dec 2023</p>
+        <div id="card-body" class=" flex flex-col gap-5 pb-2.5">
+          <a href="#" class="font-bold text-xl hover:text-[#f4d04e] w-fit">HTML & CSS foundations</a>
 
-        <h2 class="font-bold text-xl">HTML & CSS foundations</h2>
-
-        <p class="text-xs font-semibold text-gray-500">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+          <p class="font-semibold text-gray-500">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+        </div>
 
         <div id="owner-container" class="flex flex-row gap-2.5 justify-start items-center">
           <img src="assets/images/image-avatar.webp" alt="Greg_Hooper_avatar" class="w-10 h-10 rounded-full">
