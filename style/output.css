@@ -1,19 +1,5 @@
 /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
 @layer properties;
-@font-face {
-  font-family: "FigtreeExtraBold";
-  src: url('../assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "FigtreeMedium";
-  src: url('../assets/fonts/static/Figtree-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -31,8 +17,11 @@
     --text-xl--line-height: calc(1.75 / 1.25);
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --animate-moving-lr: moving-lr .6s ease-in-out forwards;
+    --animate-fade-in: fade-in .6s ease-in-out forwards;
   }
 }
 @layer base {
@@ -229,6 +218,12 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
+  .animate-fade-in {
+    animation: var(--animate-fade-in);
+  }
+  .animate-moving-lr {
+    animation: var(--animate-moving-lr);
+  }
   .resize {
     resize: both;
   }
@@ -273,9 +268,6 @@
     --tw-border-style: solid;
     border-style: solid;
   }
-  .border-\[2px_solid_\#000\] {
-    border-color: 2px solid #000;
-  }
   .border-black {
     border-color: var(--color-black);
   }
@@ -302,12 +294,6 @@
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
-  }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
-  }
-  .py-2\.5 {
-    padding-block: calc(var(--spacing) * 2.5);
   }
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
@@ -358,11 +344,20 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
   .hover\:text-\[\#f4d04e\] {
     &:hover {
       @media (hover: hover) {
         color: #f4d04e;
       }
+    }
+  }
+  .lg\:w-2\/5 {
+    @media (width >= 64rem) {
+      width: calc(2/5 * 100%);
     }
   }
   .lg\:w-3\/5 {
@@ -470,6 +465,26 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@keyframes moving-lr {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -495,6 +510,7 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
+      --tw-ease: initial;
     }
   }
 }

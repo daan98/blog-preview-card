@@ -1,17 +1,25 @@
-@font-face {
-    font-family: "FigtreeExtraBold";
-    src: url('../assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "FigtreeMedium";
-    src: url('../assets/fonts/static/Figtree-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
 @import "tailwindcss";
+
+@theme {
+    --animate-moving-lr: moving-lr .6s ease-in-out forwards;
+    --animate-fade-in: fade-in .6s ease-in-out forwards;
+
+    @keyframes moving-lr {
+        0% {
+            transform: translateX(-100vw);
+        }
+
+        100% {
+            transform: translateX(0vw);
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
